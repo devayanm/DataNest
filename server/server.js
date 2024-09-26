@@ -11,6 +11,8 @@ const analyticsRoutes = require("./routes/analyticsRoutes");
 const ratingRoutes = require("./routes/ratingRoutes");
 const notificationRoutes = require("./routes/notificationRoutes");
 const activityLogRoutes = require("./routes/activityLogRoutes");
+const paymentRoutes = require("./routes/paymentRoutes");
+const webhookRoutes = require('./routes/webhookRoutes');
 const { validateData } = require("./middleware/validationMiddleware");
 const rateLimit = require("express-rate-limit");
 
@@ -44,6 +46,8 @@ app.use("/api/analytics", analyticsRoutes);
 app.use("/api/ratings", ratingRoutes);
 app.use("/api/notifications", notificationRoutes);
 app.use("/api/activityLogs", activityLogRoutes);
+app.use("/api/payments", paymentRoutes);
+app.use('/api/webhooks', webhookRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
